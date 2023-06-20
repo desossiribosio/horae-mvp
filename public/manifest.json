@@ -1,11 +1,11 @@
 {
     "theme_color": "#ffffff",
     "background_color": "#000000",
-    "display": "fullscreen",
+    "display": "standalone",
     "scope": "/",
     "start_url": "/",
     "name": "horae-project-research-mvp",
-    "short_name": "horae",
+    "short_name": "Horae",
     "icons": [
         {
             "src": "/icons/icon-192x192.png",
