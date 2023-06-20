@@ -25,47 +25,41 @@ const Navbar = ({ onOpen }) => {
 
 	return (
 		<Center>
-			
 			<Box
 				as="header"
 				height="auto"
-				width={{base: "90%",md: "80%", lg: "60%"}}
+				width={{ base: "90%", md: "75%", lg: "auto" }}
 				py="8"
-				px="9"
+				px={{base: "9", lg: "14"}}
 				bg="#252525"
 				color="white"
 				position="fixed"
 				bottom={{ base: 0 }}
 				zIndex={100}
-				m={{base: "12px",md: "15px", lg: "30px"}}
+				m={{ base: "20px", md: "20px", lg: "30px" }}
 				borderRadius={{ base: "40px" }}
 			>
-				{/* <Box maxW="6xl" mx="auto"> */}
-					{/* <Center> */}
-					{/* <Flex as="nav" aria-label="Site navigation" align="center" justify="space-between" wrap="wrap" direction={{ base: "column", md: "row" }}> */}
-					{/* <NavLink href="/">
-								<Heading mr="4" as="button" >
-									<Image src="/horaeLogo.png" w="100px" h="100px" />
-								</Heading>
-							</NavLink> */}
-					<Center>
-						<SimpleGrid gap={{base: "10px",lg: "50px"}} columns={{ base: 3, sm: 3, md: 3, lg: 3 }}>
-							<Button color="#ffffff" variant="outline" _hover={{ bg: "#ffffff", color: "#252525" }} leftIcon={<FiUser />} fontSize={{base: "12px", md: "15px", lg: "18px"}}>
-								<NavLink href="/profile">Profilo</NavLink>
+				<Center>
+					<SimpleGrid gap={{ base: "10px", lg: "50px" }} columns={{ base: 3, sm: 3, md: 3, lg: 3 }}>
+						<Button
+							color="#ffffff"
+							variant="outline"
+							_hover={{ bg: "#ffffff", color: "#252525" }}
+							leftIcon={<FiUser />}
+							fontSize={{ base: "12px", md: "15px", lg: "18px" }}
+						>
+							<NavLink href="/profile">Profilo</NavLink>
+						</Button>
+						{router.pathname === "/" && (
+							<Button bg="#ffffff" color="#252525" onClick={onOpen} leftIcon={<FiPlusSquare />} fontSize={{ base: "12px", md: "15px", lg: "18px" }}>
+								Aggiungi
 							</Button>
-							{router.pathname === "/" && (
-								<Button bg="#ffffff" color="#252525" onClick={onOpen} leftIcon={<FiPlusSquare />} fontSize={{base: "12px", md: "15px", lg: "18px"}}>
-									Aggiungi
-								</Button>
-							)}
-							<Button colorScheme="red" onClick={logoutHandler} isLoading={isLogoutLoading} fontSize={{base: "12px", md: "15px", lg: "18px"}}>
-								Logout
-							</Button>
-						</SimpleGrid>
-					</Center>
-					{/* </Flex> */}
-					{/* </Center> */}
-				{/* </Box> */}
+						)}
+						<Button colorScheme="red" onClick={logoutHandler} isLoading={isLogoutLoading} fontSize={{ base: "12px", md: "15px", lg: "18px" }}>
+							Logout
+						</Button>
+					</SimpleGrid>
+				</Center>	
 			</Box>
 		</Center>
 	);

@@ -1,5 +1,5 @@
 import { useDisclosure } from "@chakra-ui/hooks";
-import { Box, HStack, SimpleGrid, Tag, Flex, Center, Spacer, AbsoluteCenter, Heading, Image } from "@chakra-ui/react";
+import { Box, HStack, SimpleGrid, Tag, Flex, Center, Spacer, AbsoluteCenter, Heading, Image, Divider, Icon } from "@chakra-ui/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
@@ -7,6 +7,7 @@ import ManageTodo from "../components/ManageTodo";
 import Navbar from "../components/Navbar";
 import SingleTodo from "../components/SingleTodo";
 import { supabaseClient } from "../lib/client";
+import { FiChevronDown } from "react-icons/fi";
 
 const Home = () => {
 	const initialRef = useRef();
@@ -102,20 +103,53 @@ const Home = () => {
 						<Tag bg="yellow.400" borderRadius="3xl" size="sm" mr="1" /> Lavora
 					</Box>
 				</HStack>
-				<Center>
-					<Box bg="white" minHeight="100vh">
-						<Box>
-							<Navbar onOpen={onOpen} />
-							<ManageTodo isOpen={isOpen} onClose={onClose} initialRef={initialRef} todo={todo} setTodo={setTodo} />
+				{/* <Center> */}
+				<Box bg="white" minHeight="100vh">
+					<Box>
+						<Navbar onOpen={onOpen} />
+						<ManageTodo isOpen={isOpen} onClose={onClose} initialRef={initialRef} todo={todo} setTodo={setTodo} />
 
-							<SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} gap={{ base: "2", md: "4", lg: "6" }} py="10" pb="230" m="10" mt="20">
-								{todos.map((todo, index) => (
-									<SingleTodo todo={todo} key={index} openHandler={openHandler} deleteHandler={deleteHandler} isDeleteLoading={isDeleteLoading} />
-								))}
-							</SimpleGrid>
-						</Box>
+						<Center>
+							{todos.length ? (
+								<SimpleGrid
+									columns={{ base: 1, md: 2, lg: 4 }}
+									gap={{ base: "2", md: "4", lg: "6" }}
+									pb={{ base: "10", lg: "0" }}
+									mt="100px"
+									h={{ base: "75vh", lg: "80vh" }}
+									overflow={"auto"}
+								>
+									{todos.map((todo, index) => (
+										<Center key={index}>
+											<SingleTodo todo={todo} key={index} openHandler={openHandler} deleteHandler={deleteHandler} isDeleteLoading={isDeleteLoading} />
+										</Center>
+									))}
+								</SimpleGrid>
+							) : (
+								<Center h="100vh">
+									<Box>
+										<Heading as="h1" size="xl">
+											Evvai! Non hai lavoro
+										</Heading>
+										<Box position="relative" mt={5}>
+											<Divider />
+											<Box position="absolute" top="50%" left="50%" transform="translate(-50%, -50%)" bg="white" px="4">
+												oppure
+											</Box>
+										</Box>
+										<Heading as="h3" size="md" mt={5} textAlign="center">
+											Aggiungi un turno
+										</Heading>
+										<Box textAlign="center" mt={2}>
+											<Icon as={FiChevronDown} boxSize={6} />
+										</Box>
+									</Box>
+								</Center>
+							)}
+						</Center>
 					</Box>
-				</Center>
+				</Box>
+				{/* </Center> */}
 			</main>
 		</div>
 	);

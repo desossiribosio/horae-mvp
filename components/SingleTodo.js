@@ -12,8 +12,9 @@ const SingleTodo = ({ todo, openHandler, deleteHandler, isDeleteLoading }) => {
 		<Box
 			color='black'
 			position="relative"
+			bg={"white"}
 			// maxW="md"
-			width="300px"
+			width={{base: "70vw", sm: "70vw", md: "40vw",lg: "400px"}}
 			borderWidth="1px"
 			borderRadius="lg"
 			overflow="hidden"
