@@ -1,7 +1,25 @@
-import { Alert, AlertIcon, Box, Button, chakra, FormControl, FormLabel, Heading, Input, Stack, Text, Image, Center, Divider, AbsoluteCenter } from "@chakra-ui/react";
-import { FaGithub } from "react-icons/fa";
+import {
+	Alert,
+	AlertIcon,
+	Box,
+	Button,
+	chakra,
+	FormControl,
+	FormLabel,
+	Heading,
+	Input,
+	Stack,
+	Text,
+	Image,
+	Center,
+	Divider,
+	AbsoluteCenter,
+} from "@chakra-ui/react";
+import { FaGithub, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { useState } from "react";
 import { supabaseClient } from "../lib/client";
+
+import Head from "next/head";
 
 const SignIn = () => {
 	const [email, setEmail] = useState("");
@@ -34,10 +52,13 @@ const SignIn = () => {
 	};
 
 	return (
-		<Box minH="100vh" py="12" px={{ base: "4", lg: "8" }} bg="#252525" display={"flex"} alignItems={{base: "end", sm: "end", md: "start", lg: "start"}}>
+		<Box minH="100vh" py="12" px={{ base: "4", lg: "8" }} bg="#252525" display={"flex"} alignItems={{ base: "end", sm: "end", md: "start", lg: "start" }}>
+			<Head>
+				<title>Accedi | Horae</title>
+			</Head>
 			<Box maxW="md" mx="auto">
 				<Center>
-					<Image src="/horaeLogo.png" w={{base: "200px", sm: "150px", md: "250px", lg: "300px"}} h="auto" />
+					<Image src="/horaeLogo.png" w={{ base: "200px", sm: "150px", md: "250px", lg: "300px" }} h="auto" />
 				</Center>
 				<Heading textAlign="center" m="6" color={"white"}>
 					Benvenuto ad Horae
@@ -48,7 +69,7 @@ const SignIn = () => {
 						<Text textAlign="center">{error}</Text>
 					</Alert>
 				)}
-				<Box py="8" px={{ base: "6", md: "10" }} shadow="base" rounded='xl' bg="white">
+				<Box py="8" px={{ base: "6", md: "10" }} shadow="base" rounded="xl" bg="white">
 					{isSubmitted ? (
 						<Heading size="md" textAlign="center" color="gray.600">
 							Please check {email} for login link
@@ -58,7 +79,7 @@ const SignIn = () => {
 							<Stack spacing="6">
 								<Button
 									leftIcon={<FaGithub />}
-									colorScheme="gray"
+									colorScheme="github"
 									variant="outline"
 									size="lg"
 									fontSize="md"
@@ -71,6 +92,38 @@ const SignIn = () => {
 									width="100%"
 								>
 									Accedi con GitHub
+								</Button>
+								<Button
+									leftIcon={<FaFacebook />}
+									colorScheme="facebook"
+									variant="outline"
+									size="lg"
+									fontSize="md"
+									onClick={() => {
+										// Login handling function for Facebook
+										// Add your logic here
+									}}
+									isLoading={isLoading}
+									disabled={isLoading}
+									width="100%"
+								>
+									Accedi con Facebook
+								</Button>
+								<Button
+									leftIcon={<FaLinkedin />}
+									colorScheme="blue"
+									variant="outline"
+									size="lg"
+									fontSize="md"
+									onClick={() => {
+										// Login handling function for LinkedIn
+										// Add your logic here
+									}}
+									isLoading={isLoading}
+									disabled={isLoading}
+									width="100%"
+								>
+									Accedi con LinkedIn
 								</Button>
 
 								<Box position="relative">

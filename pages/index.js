@@ -85,9 +85,7 @@ const Home = () => {
 	return (
 		<div>
 			<Head>
-				<title>Horae</title>
-				<meta name="description" content="Project research | Mohole" />
-				<link rel="icon" href="/favicon.ico" />
+				<title>Home | Horae</title>
 			</Head>
 			<main>
 				<Box position="absolute" top="0" left="0">

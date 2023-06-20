@@ -4,8 +4,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { supabaseClient } from "../lib/client";
 import { Image } from "@chakra-ui/react";
-import { FiUser } from "react-icons/fi";
-import { FiPlusSquare } from "react-icons/fi";
+import { FiPlusSquare, FiHome, FiUser } from "react-icons/fi";
 
 const Navbar = ({ onOpen }) => {
 	const router = useRouter();
@@ -30,7 +29,7 @@ const Navbar = ({ onOpen }) => {
 				height="auto"
 				width={{ base: "90%", md: "75%", lg: "auto" }}
 				py="8"
-				px={{base: "9", lg: "14"}}
+				px={{ base: "9", lg: "14" }}
 				bg="#252525"
 				color="white"
 				position="fixed"
@@ -41,6 +40,17 @@ const Navbar = ({ onOpen }) => {
 			>
 				<Center>
 					<SimpleGrid gap={{ base: "10px", lg: "50px" }} columns={{ base: 3, sm: 3, md: 3, lg: 3 }}>
+						{router.pathname !== "/" && (
+							<Button
+								color="#ffffff"
+								variant="outline"
+								_hover={{ bg: "#ffffff", color: "#252525" }}
+								fontSize={{ base: "12px", md: "15px", lg: "18px" }}
+								leftIcon={<FiHome />}
+							>
+								<NavLink href="/">Home</NavLink>
+							</Button>
+						)}
 						<Button
 							color="#ffffff"
 							variant="outline"
@@ -59,7 +69,7 @@ const Navbar = ({ onOpen }) => {
 							Logout
 						</Button>
 					</SimpleGrid>
-				</Center>	
+				</Center>
 			</Box>
 		</Center>
 	);
