@@ -3,7 +3,6 @@ import NavLink from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { supabaseClient } from "../lib/client";
-import { Image } from "@chakra-ui/react";
 import { FiPlusSquare, FiHome, FiUser } from "react-icons/fi";
 
 const Navbar = ({ onOpen }) => {
