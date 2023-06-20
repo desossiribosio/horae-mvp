@@ -96,6 +96,39 @@ const ManageTodo = ({ isOpen, onClose, initialRef, todo, setTodo }) => {
 		setTodo(null);
 		onClose();
 	};
+	  useEffect(() => {
+			if (todo && todo.finishTime) {
+				const currentTime = new Date().toLocaleTimeString();
+				if (currentTime > todo.finishTime) {
+					setIsComplete(true);
+				}
+			}
+		}, [todo]);
+
+		useEffect(() => {
+			if (isComplete) {
+				// Aggiorna lo stato "isComplete" nel database
+				const updateTodo = async () => {
+					try {
+						await supabaseClient.from("todos").update({ isComplete: true }).eq("id", todo.id);
+					} catch (error) {
+						console.error("Error updating todo:", error.message);
+					}
+				};
+
+				updateTodo();
+			}
+		}, [isComplete, todo]);
+
+		const handleFinishTimeChange = (event) => {
+			setFinishTime(event.target.value);
+			const currentTime = new Date().toLocaleTimeString();
+			if (currentTime > event.target.value) {
+				setIsComplete(true);
+			} else {
+				setIsComplete(false);
+			}
+		};
 
 	return (
 		<Modal isOpen={isOpen} onClose={onClose} isCentered initialFocusRef={initialRef}>
@@ -112,7 +145,7 @@ const ManageTodo = ({ isOpen, onClose, initialRef, todo, setTodo }) => {
 							</Alert>
 						)}
 						<FormControl isRequired={true}>
-							<FormLabel>Title</FormLabel>
+							<FormLabel>Titolo</FormLabel>
 							<Input ref={initialRef} placeholder="Add your title here" onChange={(event) => setTitle(event.target.value)} value={title} />
 						</FormControl>
 
@@ -122,23 +155,22 @@ const ManageTodo = ({ isOpen, onClose, initialRef, todo, setTodo }) => {
 						</FormControl>
 
 						<FormControl mt={4} isRequired={true}>
-							<FormLabel>Start Time</FormLabel>
+							<FormLabel>Inizio Turno</FormLabel>
 							<Input type="time" onChange={(event) => setStartTime(event.target.value)} value={startTime} />
 						</FormControl>
 
 						<FormControl mt={4} isRequired={true}>
-							<FormLabel>Finish Time</FormLabel>
+							<FormLabel>Fine Turno</FormLabel>
 							<Input type="time" onChange={(event) => setFinishTime(event.target.value)} value={finishTime} />
 						</FormControl>
 
 						<FormControl mt={4}>
 							<FormLabel>Description</FormLabel>
 							<Textarea placeholder="Add your description here" onChange={(event) => setDescription(event.target.value)} value={description} />
-							<FormHelperText>Description must have more than 10 characters.</FormHelperText>
 						</FormControl>
 
 						<FormControl mt={4}>
-							<FormLabel>Is Completed?</FormLabel>
+							<FormLabel>Finito?</FormLabel>
 							<Switch isChecked={isComplete} id="is-completed" onChange={(event) => setIsComplete(!isComplete)} />
 						</FormControl>
 					</ModalBody>

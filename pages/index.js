@@ -1,5 +1,5 @@
 import { useDisclosure } from "@chakra-ui/hooks";
-import { Box, HStack, SimpleGrid, Tag, Flex } from "@chakra-ui/react";
+import { Box, HStack, SimpleGrid, Tag, Flex, Center, Spacer, AbsoluteCenter, Heading, Image } from "@chakra-ui/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
@@ -89,25 +89,33 @@ const Home = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main>
-				<Box bg="white" minHeight="100vh">
-					<Box pb={"200px"}>
-						<Navbar onOpen={onOpen} />
-						<ManageTodo isOpen={isOpen} onClose={onClose} initialRef={initialRef} todo={todo} setTodo={setTodo} />
-						<HStack p="10" spacing="4" justify="center">
-							<Box>
-								<Tag bg="green.500" borderRadius="3xl" size="sm" mt="1" /> Complete
-							</Box>
-							<Box>
-								<Tag bg="yellow.400" borderRadius="3xl" size="sm" mt="1" /> Incomplete
-							</Box>
-						</HStack>
-						<SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={{ base: "2", md: "4", lg: "6" }} m="10">
-							{todos.map((todo, index) => (
-								<SingleTodo todo={todo} key={index} openHandler={openHandler} deleteHandler={deleteHandler} isDeleteLoading={isDeleteLoading} />
-							))}
-						</SimpleGrid>
-					</Box>
+				<Box position="absolute" top="0" left="0">
+					<Heading mr="4" as="button">
+						<Image src="/horaeLogo.png" w="100px" h="100px" />
+					</Heading>
 				</Box>
+				<HStack p="10" spacing="4" position={"absolute"} top={"0"} right={"0"}>
+					<Box fontSize={"10px"} display={"flex"} alignItems={"center"} alignContent={"center"} justifyContent={"center"}>
+						<Tag bg="green.500" borderRadius="3xl" size="sm" mr="1" /> Fatto
+					</Box>
+					<Box fontSize={"10px"} display={"flex"} alignItems={"center"} alignContent={"center"} justifyContent={"center"}>
+						<Tag bg="yellow.400" borderRadius="3xl" size="sm" mr="1" /> Lavora
+					</Box>
+				</HStack>
+				<Center>
+					<Box bg="white" minHeight="100vh">
+						<Box>
+							<Navbar onOpen={onOpen} />
+							<ManageTodo isOpen={isOpen} onClose={onClose} initialRef={initialRef} todo={todo} setTodo={setTodo} />
+
+							<SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} gap={{ base: "2", md: "4", lg: "6" }} py="10" pb="230" m="10" mt="20">
+								{todos.map((todo, index) => (
+									<SingleTodo todo={todo} key={index} openHandler={openHandler} deleteHandler={deleteHandler} isDeleteLoading={isDeleteLoading} />
+								))}
+							</SimpleGrid>
+						</Box>
+					</Box>
+				</Center>
 			</main>
 		</div>
 	);

@@ -12,7 +12,8 @@ const SingleTodo = ({ todo, openHandler, deleteHandler, isDeleteLoading }) => {
 		<Box
 			color='black'
 			position="relative"
-			maxW="md"
+			// maxW="md"
+			width="300px"
 			borderWidth="1px"
 			borderRadius="lg"
 			overflow="hidden"
@@ -20,7 +21,7 @@ const SingleTodo = ({ todo, openHandler, deleteHandler, isDeleteLoading }) => {
 			onClick={() => openHandler(todo)}
 			cursor="pointer"
 			transition="background-color 0.2s ease"
-			_hover={{ backgroundColor: "gray.100" }}
+			_hover={{ backgroundColor: "#252525", color: "white" }}
 		>
 			<Heading size="xs" mt="3">
 				{todo.title}
@@ -65,7 +66,7 @@ const SingleTodo = ({ todo, openHandler, deleteHandler, isDeleteLoading }) => {
 					loadingText="Deleting"
 					isDisabled={isDeleteLoading}
 				>
-					Delete
+					Elimina
 				</Button>
 			</Center>
 		</Box>

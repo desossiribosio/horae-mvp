@@ -1,4 +1,4 @@
-import { Alert, AlertIcon, Box, Button, chakra, FormControl, FormLabel, Heading, Input, Stack, Text, Image, Center } from "@chakra-ui/react";
+import { Alert, AlertIcon, Box, Button, chakra, FormControl, FormLabel, Heading, Input, Stack, Text, Image, Center, Divider, AbsoluteCenter } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
 import { useState } from "react";
 import { supabaseClient } from "../lib/client";
@@ -34,12 +34,12 @@ const SignIn = () => {
 	};
 
 	return (
-		<Box minH="100vh" py="12" px={{ base: "4", lg: "8" }} bg="gray.50">
+		<Box minH="100vh" py="12" px={{ base: "4", lg: "8" }} bg="#252525" display={"flex"} alignItems={{base: "end", sm: "end", md: "start", lg: "start"}}>
 			<Box maxW="md" mx="auto">
 				<Center>
-					<Image src="/horaeLogo.png" w="300px" h="300px" />
+					<Image src="/horaeLogo.png" w={{base: "200px", sm: "150px", md: "250px", lg: "300px"}} h="auto" />
 				</Center>
-				<Heading textAlign="center" m="6">
+				<Heading textAlign="center" m="6" color={"white"}>
 					Benvenuto ad Horae
 				</Heading>
 				{error && (
@@ -48,7 +48,7 @@ const SignIn = () => {
 						<Text textAlign="center">{error}</Text>
 					</Alert>
 				)}
-				<Box py="8" px={{ base: "4", md: "10" }} shadow="base" rounded={{ sm: "lg" }} bg="white">
+				<Box py="8" px={{ base: "6", md: "10" }} shadow="base" rounded='xl' bg="white">
 					{isSubmitted ? (
 						<Heading size="md" textAlign="center" color="gray.600">
 							Please check {email} for login link
@@ -70,11 +70,18 @@ const SignIn = () => {
 									disabled={isLoading}
 									width="100%"
 								>
-									Sign in with GitHub
+									Accedi con GitHub
 								</Button>
 
+								<Box position="relative">
+									<Divider />
+									<AbsoluteCenter bg="white" px="4">
+										oppure
+									</AbsoluteCenter>
+								</Box>
+
 								<FormControl id="email">
-									<FormLabel>Inserire Email</FormLabel>
+									<FormLabel>Inserisci Email</FormLabel>
 									<Input name="email" type="email" autoComplete="email" required value={email} onChange={changeHandler} />
 								</FormControl>
 								<Button color={"white"} type="submit" bg="#ff0000" size="lg" fontSize="md" isLoading={isLoading}>
