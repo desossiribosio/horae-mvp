@@ -9,6 +9,7 @@ export default class Document extends NextDocument {
 				<Head>
 					<meta name="application-name" content="Horae PWA" />
 					<meta name="apple-mobile-web-app-capable" content="yes" />
+					<meta name="apple-mobile-web-app-Title" content="TDIPoc" />
 					<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 					<meta name="apple-mobile-web-app-title" content="Horae" />
 					<meta name="format-detection" content="telephone=no" />
@@ -22,14 +23,13 @@ export default class Document extends NextDocument {
 					<meta property="og:title" content="Horae PWA" />
 					<meta property="og:description" content="Horae, Ci organizziamo?" />
 					<meta property="og:site_name" content="Horae" />
-					<meta property="og:url" content="https://yourdomain.com" />
-					<meta property="og:image" content="https://yourdomain.com/icons/icon-512x512.png" />
+					<meta property="og:url" content="https://www.horae.work/" />
+					<meta property="og:image" content="https://www.horae.work/icons/icon-512x512.png" />
 
 					<meta name="description" content="Project research | Mohole" />
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
 				<body>
-					{/* 👇 Here's the script */}
 					<ColorModeScript initialColorMode={theme.config.initialColorMode} />
 					<Main />
 					<NextScript />

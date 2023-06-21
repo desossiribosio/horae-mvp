@@ -93,38 +93,36 @@ const SignIn = () => {
 								>
 									Accedi con GitHub
 								</Button>
-								<Button
+								{/* <Button
 									leftIcon={<FaFacebook />}
 									colorScheme="facebook"
 									variant="outline"
 									size="lg"
 									fontSize="md"
 									onClick={() => {
-										// Login handling function for Facebook
-										// Add your logic here
+										supabaseClient.auth.signIn({ provider: "facebook" });
 									}}
 									isLoading={isLoading}
 									disabled={isLoading}
 									width="100%"
 								>
 									Accedi con Facebook
-								</Button>
-								<Button
+								</Button> */}
+								{/* <Button
 									leftIcon={<FaLinkedin />}
 									colorScheme="blue"
 									variant="outline"
 									size="lg"
 									fontSize="md"
 									onClick={() => {
-										// Login handling function for LinkedIn
-										// Add your logic here
+										supabaseClient.auth.signIn({ provider: "linkedin" });
 									}}
 									isLoading={isLoading}
 									disabled={isLoading}
 									width="100%"
 								>
 									Accedi con LinkedIn
-								</Button>
+								</Button> */}
 
 								<Box position="relative">
 									<Divider />

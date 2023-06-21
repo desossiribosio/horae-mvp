@@ -148,7 +148,7 @@ const ManageTodo = ({ isOpen, onClose, initialRef, todo, setTodo }) => {
 							)}
 							<FormControl isRequired={true}>
 								<FormLabel>Titolo</FormLabel>
-								<Input ref={initialRef} placeholder="Add your title here" onChange={(event) => setTitle(event.target.value)} value={title} />
+								<Input ref={initialRef} placeholder="Aggiungi Titolo" onChange={(event) => setTitle(event.target.value)} value={title} />
 							</FormControl>
 
 							<FormControl mt={4} isRequired={true}>
@@ -171,8 +171,8 @@ const ManageTodo = ({ isOpen, onClose, initialRef, todo, setTodo }) => {
 							</FormControl>
 
 							<FormControl mt={4}>
-								<FormLabel>Description</FormLabel>
-								<Textarea placeholder="Add your description here" onChange={(event) => setDescription(event.target.value)} value={description} />
+								<FormLabel>Descrizione</FormLabel>
+								<Textarea placeholder="Aggiungere descrizione" onChange={(event) => setDescription(event.target.value)} value={description} />
 							</FormControl>
 
 							<FormControl mt={4}>

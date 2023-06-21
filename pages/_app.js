@@ -6,6 +6,7 @@ import customTheme from "../lib/theme";
 import "../styles/styles.css";
 
 function MyApp({ Component, pageProps }) {
+
 	const router = useRouter();
 	const user = supabaseClient.auth.user();
 
