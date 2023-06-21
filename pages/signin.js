@@ -94,7 +94,7 @@ const SignIn = () => {
 								>
 									Accedi con GitHub
 								</Button>
-								<Button
+								{/* <Button
 									leftIcon={<FaFacebook />}
 									colorScheme="facebook"
 									variant="outline"
@@ -108,7 +108,7 @@ const SignIn = () => {
 									width="100%"
 								>
 									Accedi con Facebook
-								</Button>
+								</Button> */}
 								{/* <Button
 									leftIcon={<FaLinkedin />}
 									colorScheme="blue"
