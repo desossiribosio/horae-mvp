@@ -114,7 +114,8 @@ const Home = () => {
 									gap={{ base: "2", md: "4", lg: "6" }}
 									pb={{ base: "10", lg: "0" }}
 									mt="100px"
-									h={{ base: "75vh", lg: "80vh" }}
+									mx="50px"
+									h={{ base: "70vh", lg: "65vh" }}
 									overflow={"auto"}
 								>
 									{todos.map((todo, index) => (
