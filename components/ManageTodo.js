@@ -45,7 +45,7 @@ const ManageTodo = ({ isOpen, onClose, initialRef, todo, setTodo }) => {
 	}, [todo]);
 
 	const submitHandler = async (event) => {
-		event.preventDefault();
+		//bevent.preventDefault();
 		setErrorMessage("");
 		setIsLoading(true);
 		const user = supabaseClient.auth.user();
