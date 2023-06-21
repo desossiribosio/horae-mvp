@@ -15,7 +15,7 @@ import {
 	Divider,
 	AbsoluteCenter,
 } from "@chakra-ui/react";
-import { FaGithub, FaFacebook, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaFacebook, FaLinkedin, FaDiscord } from "react-icons/fa";
 import { useState } from "react";
 import { supabaseClient } from "../lib/client";
 
@@ -94,7 +94,7 @@ const SignIn = () => {
 								>
 									Accedi con GitHub
 								</Button>
-								{/* <Button
+								<Button
 									leftIcon={<FaFacebook />}
 									colorScheme="facebook"
 									variant="outline"
@@ -108,7 +108,7 @@ const SignIn = () => {
 									width="100%"
 								>
 									Accedi con Facebook
-								</Button> */}
+								</Button>
 								{/* <Button
 									leftIcon={<FaLinkedin />}
 									colorScheme="blue"
@@ -124,6 +124,21 @@ const SignIn = () => {
 								>
 									Accedi con LinkedIn
 								</Button> */}
+								<Button
+									leftIcon={<FaDiscord />}
+									colorScheme="blue"
+									variant="outline"
+									size="lg"
+									fontSize="md"
+									onClick={() => {
+										supabaseClient.auth.signIn({ provider: "discord" });
+									}}
+									isLoading={isLoading}
+									disabled={isLoading}
+									width="100%"
+								>
+									Accedi con Discord
+								</Button>
 
 								<Box position="relative">
 									<Divider />
