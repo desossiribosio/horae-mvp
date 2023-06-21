@@ -45,7 +45,7 @@ const ManageTodo = ({ isOpen, onClose, initialRef, todo, setTodo }) => {
 	}, [todo]);
 
 	const submitHandler = async (event) => {
-		//bevent.preventDefault();
+		event.preventDefault();
 		setErrorMessage("");
 		setIsLoading(true);
 		const user = supabaseClient.auth.user();
@@ -84,6 +84,7 @@ const ManageTodo = ({ isOpen, onClose, initialRef, todo, setTodo }) => {
 			setErrorMessage(supabaseError.message);
 		} else {
 			closeHandler();
+			window.location.reload(); // Refresh the page
 		}
 	};
 
