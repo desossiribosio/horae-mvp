@@ -23,7 +23,7 @@ export default class Document extends NextDocument {
 					<meta property="og:title" content="Horae PWA" />
 					<meta property="og:description" content="Horae, Ci organizziamo?" />
 					<meta property="og:site_name" content="Horae" />
-					<meta property="og:url" content="https://www.horae.work/" />
+					<meta property="og:url" content="https://www.horae.work" />
 					<meta property="og:image" content="https://www.horae.work/icons/icon-512x512.png" />
 
 					<meta name="description" content="Project research | Mohole" />

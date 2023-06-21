@@ -110,7 +110,7 @@ const Profile = () => {
 					pt="10"
 					width={{ base: "90vw", sm: "90vw", md: "40vw", lg: "400px" }}
 					pb={{ base: "10", lg: "0" }}
-					h={{ base: "85vh", lg: "100vh" }}
+					h={{ base: "74vh", lg: "74vh" }}
 					overflow="auto"
 				>
 					<Flex align="center" justify="center" direction="column">
@@ -128,15 +128,15 @@ const Profile = () => {
 							<FormLabel>Email</FormLabel>
 							<Input type="email" isDisabled={true} value={email} />
 						</FormControl>
-						<FormControl id="username" isRequired>
+						<FormControl id="username">
 							<FormLabel>Username</FormLabel>
 							<Input placeholder="Add your username here" type="text" value={username} onChange={(event) => setUsername(event.target.value)} />
 						</FormControl>
-						<FormControl id="website" isRequired>
+						<FormControl id="website">
 							<FormLabel>Website URL</FormLabel>
 							<Input placeholder="Add your website here" type="url" value={website} onChange={(event) => setWebsite(event.target.value)} />
 						</FormControl>
-						<FormControl id="bio" isRequired>
+						<FormControl id="bio">
 							<FormLabel>Bio</FormLabel>
 							<Textarea placeholder="Add your bio here" value={bio} onChange={(event) => setBio(event.target.value)} />
 						</FormControl>
