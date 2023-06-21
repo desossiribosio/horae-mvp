@@ -115,7 +115,7 @@ const Home = () => {
 									pb={{ base: "10", lg: "0" }}
 									mt="100px"
 									mx="50px"
-									h={{ base: "70vh", lg: "65vh" }}
+									h={{ base: "74vh", lg: "74vh" }}
 									overflow={"auto"}
 								>
 									{todos.map((todo, index) => (
