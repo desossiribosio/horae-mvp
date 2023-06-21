@@ -108,9 +108,9 @@ const Profile = () => {
 			<Center>
 				<Box
 					pt="10"
-					width={{ base: "90vw", sm: "90vw", md: "40vw", lg: "400px" }}
+					width={{ base: "90vw", sm: "90vw", md: "40vw", lg: "500px" }}
 					pb={{ base: "10", lg: "0" }}
-					h={{ base: "74vh", lg: "74vh" }}
+					h={{ base: "74vh", lg: "80vh" }}
 					overflow="auto"
 				>
 					<Flex align="center" justify="center" direction="column">
@@ -120,9 +120,6 @@ const Profile = () => {
 						</FormLabel>
 						<Input type="file" hidden id="file-input" onChange={uploadHandler} multiple={false} disabled={isImageUploadLoading} />
 					</Flex>
-					<Heading textAlign="center" m="6">
-						Modifica Profilo
-					</Heading>
 					<Stack borderWidth="1px" borderRadius="lg" overflow="hidden" p={5} mt="-2" spacing="4" as="form" onSubmit={updateHandler}>
 						<FormControl id="email" isRequired>
 							<FormLabel>Email</FormLabel>
