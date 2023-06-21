@@ -55,6 +55,7 @@ const SignIn = () => {
 		<Box minH="100vh" py="12" px={{ base: "4", lg: "8" }} bg="#252525" display={"flex"} alignItems={{ base: "end", sm: "end", md: "start", lg: "start" }}>
 			<Head>
 				<title>Accedi | Horae</title>
+				<meta name="theme-color" content="#252525"/>
 			</Head>
 			<Box maxW="md" mx="auto">
 				<Center>

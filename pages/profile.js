@@ -110,7 +110,7 @@ const Profile = () => {
 					pt="10"
 					width={{ base: "90vw", sm: "90vw", md: "40vw", lg: "500px" }}
 					pb={{ base: "10", lg: "0" }}
-					h={{ base: "74vh", lg: "80vh" }}
+					h={{ base: "80vh", lg: "80vh" }}
 					overflow="auto"
 				>
 					<Flex align="center" justify="center" direction="column">
