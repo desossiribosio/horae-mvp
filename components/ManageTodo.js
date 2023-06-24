@@ -177,7 +177,7 @@ const ManageTodo = ({ isOpen, onClose, initialRef, todo, setTodo }) => {
 							</FormControl>
 
 							<FormControl mt={4}>
-								<FormLabel>Finito?</FormLabel>
+								<FormLabel>Hai già completato questo turno?</FormLabel>
 								<Switch isChecked={isComplete} id="is-completed" onChange={(event) => setIsComplete(!isComplete)} />
 							</FormControl>
 						</ModalBody>
